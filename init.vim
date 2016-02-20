@@ -78,3 +78,6 @@ call unite#custom#profile('files', 'filters', 'sorter_rank')
 
 " Terminus
 let g:TerminusBracketedPaste=0
+
+" Easyclip
+let g:EasyClipUseSubstituteDefaults=1

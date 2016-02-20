@@ -8,7 +8,7 @@ cmap <C-v> <C-R>+
 nnoremap <silent> <Leader>b :<C-u>Unite buffer<CR>
 nnoremap <silent> <Leader>o :<C-u>UniteWithProjectDir -start-insert file<CR>
 nnoremap <silent> <Leader>t :<C-u>UniteWithProjectDir -start-insert file_rec/async<CR>
-nnoremap <silent> <leader>p :<C-u>Unite history/yank<CR>
+nnoremap <silent> <leader>p :<C-u>Yanks<CR>
 nnoremap <silent> <leader>g :<C-u>UniteWithProjectDir -start-insert grep:.<CR>
 
 """ Undotree
