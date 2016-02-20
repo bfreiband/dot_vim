@@ -75,3 +75,6 @@ elseif executable('ack')
   let g:unite_source_rec_async_command=['ack', '--follow', '--nocolor', '--nogroup', '-f']
 endif
 call unite#custom#profile('files', 'filters', 'sorter_rank')
+
+" Terminus
+let g:TerminusBracketedPaste=0
