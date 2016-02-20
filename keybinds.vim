@@ -5,11 +5,11 @@ map <Leader>v "+gP
 cmap <C-v> <C-R>+
 
 """ Unite
-nnoremap <silent> <Leader>b :<C-u>Unite buffer<CR>
-nnoremap <silent> <Leader>o :<C-u>UniteWithProjectDir -start-insert file<CR>
-nnoremap <silent> <Leader>t :<C-u>UniteWithProjectDir -start-insert file_rec/async<CR>
-nnoremap <silent> <leader>p :<C-u>Yanks<CR>
-nnoremap <silent> <leader>g :<C-u>UniteWithProjectDir -start-insert grep:.<CR>
+nnoremap <silent> <Leader>b :<C-u>Unite -buffer-name=buffers buffer<CR>
+nnoremap <silent> <Leader>o :<C-u>Unite -buffer-name=files file<CR>
+nnoremap <silent> <Leader>t :<C-u>Unite -buffer-name=recursive buffer file_rec/async<CR>
+nnoremap <silent> <leader>p :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> <leader>g :<C-u>UniteWithCurrentDir -buffer-name=grep grep<CR>
 
 """ Undotree
 nnoremap <leader>u :<C-u>:UndotreeToggle<CR>

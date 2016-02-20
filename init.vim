@@ -70,12 +70,28 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
 " Unite
+function! s:unite_settings()
+  setlocal noswapfile undolevels=-1
+  nmap <buffer> <ESC> <Plug>(unite_exit)
+endfunction
+
+autocmd FileType unite call s:unite_settings()
+
+let g:unite_enable_start_insert = 1
+let g:unite_force_overwrite_statusline = 0
+"let g:unite_enable_auto_select = 1
+
 if executable('ag')
-  let g:unite_source_rec_async_command=['ag', '--search-files', '--follow', '--nocolor', '--nogroup', '-g', '']
+  let g:unite_source_rec_async_command=['ag', '--vimgrep', '-l', '.']
+  let g:unite_source_grep_command='ag'
+  let g:unite_source_grep_default_opts='-i --vimgrep'
+  let g:unite_source_grep_recursive_opt=''
 elseif executable('ack')
   let g:unite_source_rec_async_command=['ack', '--follow', '--nocolor', '--nogroup', '-f']
 endif
-call unite#custom#profile('files', 'filters', 'sorter_rank')
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
 
 " Terminus
 let g:TerminusBracketedPaste=0
