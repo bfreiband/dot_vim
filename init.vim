@@ -8,7 +8,7 @@ runtime keybinds.vim
 syntax enable
 filetype plugin indent on
 
-set clipboard=unnamedplus
+set clipboard=unnamed
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -82,3 +82,4 @@ let g:TerminusBracketedPaste=0
 
 " Easyclip
 let g:EasyClipUseSubstituteDefaults=1
+let g:EasyClipAutoFormat=1
