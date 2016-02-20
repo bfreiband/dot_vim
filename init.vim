@@ -8,6 +8,7 @@ runtime keybinds.vim
 syntax enable
 filetype plugin indent on
 
+set clipboard=unnamedplus
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
