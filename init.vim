@@ -115,11 +115,10 @@ let g:EasyClipUseSubstituteDefaults=1
 let g:EasyClipAutoFormat=1
 
 if !has("gui_running") && !empty($CONEMUANSI)
+  set termencoding=utf8
   set term=pcansi
   set t_Co=256
   let &t_AB="\e[48;5;%dm"
   let &t_AF="\e[38;5;%dm"
-  set bs=indent,eol,start
   let g:TerminusCursorShape=0
-  let g:airline_powerline_fonts=0
 endif
