@@ -6,7 +6,7 @@ Plug 'tpope/vim-sensible'
 Plug 'wincent/terminus'
 Plug 'ConradIrwin/vim-bracketed-paste'
 
-""" Interface plugins
+""" General
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'vim-airline/vim-airline'
@@ -15,8 +15,7 @@ Plug 'vits/ZoomWin'
 Plug 'talek/obvious-resize'
 Plug 'mbbill/undotree'
 Plug 'zhaocai/GoldenView.Vim'
-
-""" Functionality
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-endwise'
