@@ -7,9 +7,13 @@ cmap <C-v> <C-R>+
 """ Unite
 nnoremap <silent> <Leader>b :<C-u>Unite -buffer-name=buffers buffer<CR>
 nnoremap <silent> <Leader>o :<C-u>Unite -buffer-name=files file<CR>
-nnoremap <silent> <Leader>t :<C-u>Unite -buffer-name=recursive buffer file_rec/async<CR>
 nnoremap <silent> <leader>p :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> <leader>g :<C-u>UniteWithCurrentDir -buffer-name=grep grep<CR>
+if has("win32")
+  nnoremap <silent> <Leader>t :<C-u>Unite -buffer-name=recursive buffer file_rec<CR>
+else
+  nnoremap <silent> <Leader>t :<C-u>Unite -buffer-name=recursive buffer file_rec/async:!<CR>
+endif
 
 """ Undotree
 nnoremap <leader>u :<C-u>:UndotreeToggle<CR>

@@ -8,6 +8,8 @@ runtime keybinds.vim
 syntax enable
 filetype plugin indent on
 
+set fileformat=unix
+
 set clipboard=unnamed
 set tabstop=2
 set shiftwidth=2
@@ -77,11 +79,14 @@ endfunction
 
 autocmd FileType unite call s:unite_settings()
 
-let g:unite_enable_start_insert = 1
-let g:unite_force_overwrite_statusline = 0
-"let g:unite_enable_auto_select = 1
+let g:unite_force_overwrite_statusline=0
 
-if executable('ag')
+if executable('pt')
+  let g:unite_source_rec_async_command=['pt', '--nogroup', '--nocolor', '-l', '.']
+  let g:unite_source_grep_command='pt'
+  let g:unite_source_grep_default_opts='-i --nogroup --nocolor'
+  let g:unite_source_grep_recursive_opt=''
+elseif executable('ag')
   let g:unite_source_rec_async_command=['ag', '--vimgrep', '-l', '.']
   let g:unite_source_grep_command='ag'
   let g:unite_source_grep_default_opts='-i --vimgrep'
@@ -90,8 +95,17 @@ elseif executable('ack')
   let g:unite_source_rec_async_command=['ack', '--follow', '--nocolor', '--nogroup', '-f']
 endif
 
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
+call unite#custom#profile('default', 'context', {
+      \ 'start_insert': 1,
+      \ 'immediately': 1,
+      \ 'short_source_names': 1,
+      \ 'wipe': 1,
+      \})
+call unite#filters#matcher_default#use([
+      \ 'matcher_hide_hidden_files', 
+      \ 'matcher_fuzzy',
+      \])
+call unite#filters#sorter_default#use(['sorter_selecta'])
 
 " Terminus
 let g:TerminusBracketedPaste=0
