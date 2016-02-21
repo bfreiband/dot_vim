@@ -54,10 +54,10 @@ if has("gui_running")
   set guioptions-=m
   set guioptions-=e
   set winaltkeys=no
-  set clipboard=unnamed
   set mousemodel=popup 
+  "set lines=40 columns=100
 
-  set guifont=Input\ Mono\ Narrow\ Regular\ 11
+  set guifont=InputMonoNarrow:h10
 endif
 
 """ Plugin related settings
@@ -99,3 +99,13 @@ let g:TerminusBracketedPaste=0
 " Easyclip
 let g:EasyClipUseSubstituteDefaults=1
 let g:EasyClipAutoFormat=1
+
+if !has("gui_running") && !empty($CONEMUANSI)
+  set term=pcansi
+  set t_Co=256
+  let &t_AB="\e[48;5;%dm"
+  let &t_AF="\e[38;5;%dm"
+  set bs=indent,eol,start
+  let g:TerminusCursorShape=0
+  let g:airline_powerline_fonts=0
+endif
