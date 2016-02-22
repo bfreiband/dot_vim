@@ -5,62 +5,54 @@ set nocompatible
 runtime plugins.vim
 runtime keybinds.vim
 
-syntax enable
-filetype plugin indent on
+set encoding=utf8
 
 set fileformat=unix
-
 set clipboard=unnamed
+set nobackup
+set nowritebackup
+
+set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set expandtab
 
-set encoding=utf8
-set t_Co=256
+set backspace=indent,eol,start
 
-set backspace=2
-set nohls
+set wrap
+set linebreak
+set breakat=\ |@-+;,./?^I
+set showbreak=~>
+
 set ignorecase
 set smartcase
+
+set nohls
 set hidden
 set title
 set shortmess=atI
 set laststatus=2
 set visualbell
-set cursorline
 set modeline
-set modelines=10
 
-set wrap
-set linebreak
-set breakat=\ |@-+;,./?^I
-set showbreak=~>\ 
+""" Color
+let g:jellybeans_use_lowcolor_black=1
+let g:jellybeans_overrides = {
+\  'background': {
+\    '256ctermbg': '0',
+\  },
+\}
 
-set nobackup
-set nowritebackup
+"\    'guibg': '000000',
 
 set background=dark
-
 colorscheme jellybeans
-hi SpellBad term=reverse cterm=underline ctermbg=88 gui=underline guibg=#401010 guisp=Red
-hi SpellCap term=reverse cterm=underline ctermbg=20 gui=underline guibg=#000040 guisp=Blue
-hi SpellRare term=reverse cterm=underline ctermbg=53 gui=underline guibg=#310041 guisp=Magenta
-hi SpellLocal term=underline cterm=underline ctermbg=23 gui=underline guibg=#003020 guisp=Cyan
-highlight Cursor guifg=black guibg=grey
 
-if has("gui_running")
-  set spell
-  set spelllang=en_us
-  set guioptions-=T
-  set guioptions-=m
-  set guioptions-=e
-  set winaltkeys=no
-  set mousemodel=popup 
-  "set lines=40 columns=100
-
-  set guifont=InputMonoNarrow:h10
-endif
+hi SpellBad cterm=none ctermbg=88 gui=underline guibg=#401010 guisp=Red
+hi SpellCap cterm=none ctermbg=20 gui=underline guibg=#000040 guisp=Blue
+hi SpellRare cterm=none ctermbg=53 gui=underline guibg=#310041 guisp=Magenta
+hi SpellLocal cterm=none ctermbg=23 gui=underline guibg=#003020 guisp=Cyan
+hi Cursor guifg=black guibg=grey
 
 """ Plugin related settings
 " Vimfiler
@@ -102,7 +94,7 @@ call unite#custom#profile('default', 'context', {
       \ 'wipe': 1,
       \})
 call unite#filters#matcher_default#use([
-      \ 'matcher_hide_hidden_files', 
+      \ 'matcher_hide_hidden_files',
       \ 'matcher_fuzzy',
       \])
 call unite#filters#sorter_default#use(['sorter_selecta'])
@@ -114,11 +106,54 @@ let g:TerminusBracketedPaste=0
 let g:EasyClipUseSubstituteDefaults=1
 let g:EasyClipAutoFormat=1
 
-if !has("gui_running") && !empty($CONEMUANSI)
-  set termencoding=utf8
-  set term=pcansi
+" VimFiler
+autocmd FileType vimfiler nmap <silent><buffer> <2-LeftMouse> <Plug>(vimfiler_smart_l)
+
+""" Terminal specific stuff
+
+if has("gui_running")
+  set lines=40 columns=100
+
+  set guifont=InputMonoNarrow:h11
+  set guioptions-=T
+  set guioptions-=m
+  set guioptions-=e
+
+  set mousemodel=popup
+  set winaltkeys=no
+
+  set spell
+  set spelllang=en_us
+else
+  if !empty($CONEMUANSI)
+    set termencoding=utf8
+    set term=xterm
+
+    set t_ti=
+
+    let g:TerminusCursorShape=0
+    let g:jellybeans_use_term_background_color=1
+
+  else
+    set term=$TERM
+  endif
+  
+  " The term stuff here will likely need to be expanded on
+  if &term =~ "xterm"
+    if has('terminfo')
+      let &t_Sf="\e[3%p1%dm"
+      let &t_Sb="\e[4%p1%dm"
+    else
+      let &t_Sf="\e[3%dm"
+      let &t_Sb="\e[4%dm"
+    endif
+  endif
+
   set t_Co=256
-  let &t_AB="\e[48;5;%dm"
-  let &t_AF="\e[38;5;%dm"
-  let g:TerminusCursorShape=0
+  set ttymouse=xterm2
 endif
+
+exe "set t_te=" . &t_te . &t_op
+
+filetype plugin indent on
+syntax enable

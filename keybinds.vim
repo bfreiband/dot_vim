@@ -4,12 +4,20 @@ vnoremap <Leader>c "+y
 map <Leader>v "+gP
 cmap <C-v> <C-R>+
 
+""" Terminal scroll for ConEmu
+if !empty($CONEMUANSI)
+  inoremap <Esc>[62~ <C-X><C-E>
+  inoremap <Esc>[63~ <C-X><C-Y>
+  nnoremap <Esc>[62~ <C-E>
+  nnoremap <Esc>[63~ <C-Y> 
+endif
+
 """ Unite
 nnoremap <silent> <Leader>b :<C-u>Unite -buffer-name=buffers buffer<CR>
-nnoremap <silent> <Leader>o :<C-u>Unite -buffer-name=files file<CR>
+nnoremap <silent> <Leader>o :<C-u>VimFiler<CR>
 nnoremap <silent> <leader>p :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> <leader>g :<C-u>UniteWithCurrentDir -buffer-name=grep grep<CR>
-if has("win32")
+if has("win32") || has("win64")
   nnoremap <silent> <Leader>t :<C-u>Unite -buffer-name=recursive buffer file_rec<CR>
 else
   nnoremap <silent> <Leader>t :<C-u>Unite -buffer-name=recursive buffer file_rec/async:!<CR>
@@ -43,8 +51,5 @@ nnoremap <silent> <C-S-Right> :<C-u>ObviousResizeRight<CR>
 nnoremap <silent> <C-=> :<C-u>wincmd =<CR>
 nnoremap <silent> <C-w> :<C-u>bw<CR>
 
-" Control backspace on terminal gives control ?
 nnoremap <silent> <C-?> :<C-u>ZoomWin<CR>
-nnoremap <silent> <C-Backspace> :<C-u>ZoomWin<CR>
-"
-
+nnoremap <silent> <C-BS> :<C-u>ZoomWin<CR>

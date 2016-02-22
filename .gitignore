@@ -1,3 +1,4 @@
+*.swp
 .netrwhist
 /plugins/*
 !/plugins/.keep
