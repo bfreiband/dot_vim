@@ -112,9 +112,13 @@ autocmd FileType vimfiler nmap <silent><buffer> <2-LeftMouse> <Plug>(vimfiler_sm
 """ Terminal specific stuff
 
 if has("gui_running")
-  set lines=40 columns=100
+  set lines=40 columns=100 linespace=0
 
-  set guifont=InputMonoNarrow:h11
+  if !empty($USERDOMAIN) && $USERDOMAIN =~ "Lethe"
+    set guifont=InputMonoNarrow:h10
+  else
+    set guifont=InputMonoNarrow:h12
+  endif
   set guioptions-=T
   set guioptions-=m
   set guioptions-=e
