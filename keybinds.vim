@@ -4,12 +4,15 @@ vnoremap <Leader>c "+y
 map <Leader>v "+gP
 cmap <C-v> <C-R>+
 
-""" Terminal scroll for ConEmu
+""" ComEmu stuff
 if !empty($CONEMUANSI)
+  "Terminal scroll
   inoremap <Esc>[62~ <C-X><C-E>
   inoremap <Esc>[63~ <C-X><C-Y>
   nnoremap <Esc>[62~ <C-E>
   nnoremap <Esc>[63~ <C-Y> 
+  nnoremap <C-Del> <BS>
+  inoremap <C-Del> <BS>
 endif
 
 """ Unite

@@ -30,6 +30,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'tikhomirov/vim-glsl'
 Plug 'kchmck/vim-coffee-script'
 Plug 'AndrewRadev/vim-eco'
+Plug 'PProvost/vim-ps1'
 
 """ Themes
 Plug 'nanotech/jellybeans.vim'

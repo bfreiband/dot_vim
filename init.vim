@@ -134,6 +134,7 @@ else
     set term=xterm
 
     set t_ti=
+    set t_kb=<C-Del>
 
     let g:TerminusCursorShape=0
     let g:jellybeans_use_term_background_color=1
