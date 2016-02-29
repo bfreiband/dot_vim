@@ -5,6 +5,9 @@ set nocompatible
 runtime plugins.vim
 runtime keybinds.vim
 
+set backupdir=$VIMHOME/backups
+set directory=$VIMHOME/backups
+
 set encoding=utf8
 
 set fileformat=unix

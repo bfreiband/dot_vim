@@ -2,3 +2,5 @@
 .netrwhist
 /plugins/*
 !/plugins/.keep
+/backups/*
+!/backups/.keep
