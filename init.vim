@@ -10,7 +10,7 @@ set directory=$VIMHOME/backups
 
 set encoding=utf8
 
-set fileformat=unix
+set ffs=unix,dos
 set clipboard=unnamed
 set nobackup
 set nowritebackup
@@ -92,7 +92,6 @@ endif
 
 call unite#custom#profile('default', 'context', {
       \ 'start_insert': 1,
-      \ 'immediately': 1,
       \ 'short_source_names': 1,
       \ 'wipe': 1,
       \})
