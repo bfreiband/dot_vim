@@ -69,7 +69,6 @@ let g:airline_right_sep = ''
 " Unite
 function! s:unite_settings()
   setlocal noswapfile undolevels=-1
-  nmap <buffer> <ESC> <Plug>(unite_exit)
 endfunction
 
 autocmd FileType unite call s:unite_settings()
@@ -95,6 +94,11 @@ call unite#custom#profile('default', 'context', {
       \ 'short_source_names': 1,
       \ 'wipe': 1,
       \})
+
+call unite#custom#source('file_rec', 'ignore_pattern', join([
+      \ '\/target\/',
+      \ '\/vendor\/',
+      \], '\|'))
 call unite#filters#matcher_default#use([
       \ 'matcher_hide_hidden_files',
       \ 'matcher_fuzzy',
