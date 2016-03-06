@@ -1,7 +1,7 @@
 """ Copy and paste from clipboard
 vnoremap <Leader>x "+x
-vnoremap <Leader>c "+y
-map <Leader>v "+gP
+noremap <Leader>c "+y
+noremap <Leader>v "+gP
 cmap <C-v> <C-R>+
 
 """ ComEmu stuff
@@ -37,10 +37,10 @@ nmap <A-Down> ]e
 vmap <A-Up> [egv
 vmap <A-Down> ]egv
 " Indent
-map <A-Right> >>
-map <A-Left> <<
-vmap <A-Right> >gv
-vmap <A-Left> <gv
+nnoremap <A-Right> >>
+nnoremap <A-Left> <<
+vnoremap <A-Right> >gv
+vnoremap <A-Left> <gv
 
 """ Viewports
 nnoremap <silent> <C-Up> :<C-u>wincmd k<CR>
@@ -54,5 +54,5 @@ nnoremap <silent> <C-S-Right> :<C-u>ObviousResizeRight<CR>
 nnoremap <silent> <C-=> :<C-u>wincmd =<CR>
 nnoremap <silent> <C-w> :<C-u>bw<CR>
 
-nnoremap <silent> <C-?> :<C-u>ZoomWin<CR>
-nnoremap <silent> <C-BS> :<C-u>ZoomWin<CR>
+noremap <silent> <C-?> :<C-u>ZoomWin<CR>
+noremap <silent> <C-BS> :<C-u>ZoomWin<CR>

@@ -2,11 +2,15 @@ let $VIMHOME=expand('<sfile>:p:h')
 
 set nocompatible
 
+filetype plugin indent on
+syntax on
+
 runtime plugins.vim
 runtime keybinds.vim
 
-set backupdir=$VIMHOME/backups
-set directory=$VIMHOME/backups
+set backupdir=$VIMHOME/files/backup
+set directory=$VIMHOME/files/swap
+set viminfo='100,n$VIMHOME/files/viminfo
 
 set encoding=utf8
 
@@ -14,7 +18,9 @@ set ffs=unix,dos
 set clipboard=unnamed
 set nobackup
 set nowritebackup
+set hidden
 
+set autoindent
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -31,12 +37,17 @@ set ignorecase
 set smartcase
 
 set nohls
-set hidden
 set title
+set visualbell
 set shortmess=atI
 set laststatus=2
-set visualbell
 set modeline
+set display=lastline
+
+set ttyfast
+
+set showmode
+set showcmd
 
 """ Color
 let g:jellybeans_use_lowcolor_black=1
@@ -165,6 +176,3 @@ else
 endif
 
 exe "set t_te=" . &t_te . &t_op
-
-filetype plugin indent on
-syntax enable

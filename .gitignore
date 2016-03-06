@@ -4,3 +4,5 @@
 !/plugins/.keep
 /backups/*
 !/backups/.keep
+/files/*
+!/files/.keep
