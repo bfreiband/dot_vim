@@ -98,6 +98,7 @@ call unite#custom#profile('default', 'context', {
 call unite#custom#source('file_rec', 'ignore_pattern', join([
       \ '\/target\/',
       \ '\/vendor\/',
+      \ '\/pkg\/',
       \], '\|'))
 call unite#filters#matcher_default#use([
       \ 'matcher_hide_hidden_files',
@@ -123,7 +124,7 @@ if has("gui_running")
   if !empty($USERDOMAIN) && $USERDOMAIN =~ "Lethe"
     set guifont=InputMonoNarrow:h10
   else
-    set guifont=InputMonoNarrow:h12
+    set guifont=InputMonoNarrow:h11
   endif
   set guioptions-=T
   set guioptions-=m
@@ -145,6 +146,9 @@ else
     let g:TerminusCursorShape=0
     let g:jellybeans_use_term_background_color=1
 
+    set t_Co=256
+
+    let g:airline_powerline_fonts=0
   else
     set term=$TERM
   endif
@@ -158,13 +162,20 @@ else
       let &t_Sf="\e[3%dm"
       let &t_Sb="\e[4%dm"
     endif
+
+    set ttymouse=xterm2
+    exe "set t_te=" . &t_te . &t_op
+
+    set t_Co=256
+  else
+    let g:TerminusCursorShape=0
+    let g:jellybeans_use_term_background_color=1
+    let g:airline_powerline_fonts=0
+    set termencoding=utf8
   endif
 
-  set t_Co=256
-  set ttymouse=xterm2
 endif
 
-exe "set t_te=" . &t_te . &t_op
 
 filetype plugin indent on
 syntax enable
