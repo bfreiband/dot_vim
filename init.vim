@@ -51,14 +51,6 @@ set showcmd
 
 """ Color
 let g:jellybeans_use_lowcolor_black=1
-let g:jellybeans_overrides = {
-\  'background': {
-\    '256ctermbg': '0',
-\  },
-\}
-
-"\    'guibg': '000000',
-
 set background=dark
 colorscheme jellybeans
 
@@ -135,7 +127,7 @@ if has("gui_running")
   if !empty($USERDOMAIN) && $USERDOMAIN =~ "Lethe"
     set guifont=InputMonoNarrow:h10
   else
-    set guifont=InputMonoNarrow:h11
+    set guifont=Input\ Mono\ Narrow\ 12
   endif
   set guioptions-=T
   set guioptions-=m
