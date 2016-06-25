@@ -4,7 +4,6 @@ call plug#begin($VIMHOME . '/plugins')
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'tpope/vim-sensible'
 Plug 'wincent/terminus'
-Plug 'ConradIrwin/vim-bracketed-paste'
 
 """ General
 Plug 'Shougo/unite.vim'
