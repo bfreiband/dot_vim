@@ -30,7 +30,7 @@ set backspace=indent,eol,start
 
 set wrap
 set linebreak
-set breakat=\ |@-+;,./?^I
+"set breakat=\ |@-+;,./?^I
 set showbreak=~>
 
 set ignorecase
@@ -49,7 +49,7 @@ set ttyfast
 set showmode
 set showcmd
 
-""" Color
+"" Color
 let g:jellybeans_use_lowcolor_black=1
 let g:jellybeans_overrides = {
 \  'background': {
@@ -127,9 +127,10 @@ let g:EasyClipAutoFormat=1
 " VimFiler
 autocmd FileType vimfiler nmap <silent><buffer> <2-LeftMouse> <Plug>(vimfiler_smart_l)
 
-""" Terminal specific stuff
+"" Terminal specific stuff
 
 if has("gui_running")
+  set encoding=utf8
   set lines=40 columns=100 linespace=0
 
   if !empty($USERDOMAIN) && $USERDOMAIN =~ "Lethe"
@@ -147,25 +148,8 @@ if has("gui_running")
   set spell
   set spelllang=en_us
 else
-  if !empty($CONEMUANSI)
-    set termencoding=utf8
-    set term=xterm
-
-    set t_ti=
-    set t_kb=<C-Del>
-
-    let g:TerminusCursorShape=0
-    let g:jellybeans_use_term_background_color=1
-
-    set t_Co=256
-
-    let g:airline_powerline_fonts=0
-  else
-    set term=$TERM
-  endif
-  
-  " The term stuff here will likely need to be expanded on
   if &term =~ "xterm"
+    set termencoding=utf8
     if has('terminfo')
       let &t_Sf="\e[3%p1%dm"
       let &t_Sb="\e[4%p1%dm"
@@ -179,13 +163,9 @@ else
 
     set t_Co=256
   else
-    let g:TerminusCursorShape=0
-    let g:jellybeans_use_term_background_color=1
+    colo default
+    " Dont load terminus
+    let g:TerminusLoaded=1
     let g:airline_powerline_fonts=0
-    set termencoding=utf8
   endif
-
 endif
-
-filetype plugin indent on
-syntax enable
