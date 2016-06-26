@@ -14,7 +14,6 @@ set viminfo='100,n$VIMHOME/files/viminfo
 
 set encoding=utf8
 
-set ff=unix
 set ffs=unix,dos
 set clipboard=unnamed
 set nobackup
