@@ -101,6 +101,7 @@ call unite#custom#profile('default', 'context', {
 call unite#custom#source('file_rec', 'ignore_pattern', join([
       \ '\/target\/',
       \ '\/vendor\/',
+      \ '\/node_modules\/',
       \ '\/pkg\/',
       \], '\|'))
 call unite#filters#matcher_default#use([
@@ -119,6 +120,12 @@ let g:EasyClipAutoFormat=1
 " VimFiler
 autocmd FileType vimfiler nmap <silent><buffer> <2-LeftMouse> <Plug>(vimfiler_smart_l)
 
+" vim-go
+" temp disable as it doesn't seem to be getting the path correctly since
+" updating
+let g:go_fmt_autosave = 0
+
+
 "" Terminal specific stuff
 
 if has("gui_running")
@@ -128,7 +135,8 @@ if has("gui_running")
   if !empty($USERDOMAIN) && $USERDOMAIN =~ "Lethe"
     set guifont=InputMonoNarrow:h10
   else
-    set guifont=Input\ Mono\ Narrow\ 12
+    set guifont=InputMonoNarrow:h11
+    "set guifont=Input\ Mono\ Narrow\ 12
   endif
   set guioptions-=T
   set guioptions-=m
