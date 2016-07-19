@@ -132,11 +132,14 @@ if has("gui_running")
   set encoding=utf8
   set lines=40 columns=100 linespace=0
 
-  if !empty($USERDOMAIN) && $USERDOMAIN =~ "Lethe"
-    set guifont=InputMonoNarrow:h10
+  if has("win32") 
+    if !empty($USERDOMAIN) && $USERDOMAIN =~ "Lethe"
+      set guifont=InputMonoNarrow:h10
+    else
+      set guifont=InputMonoNarrow:h11
+    endif
   else
-    set guifont=InputMonoNarrow:h11
-    "set guifont=Input\ Mono\ Narrow\ 12
+    set guifont=Input\ Mono\ Narrow\ 11
   endif
   set guioptions-=T
   set guioptions-=m
