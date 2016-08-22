@@ -4,16 +4,8 @@ noremap <Leader>c "+y
 noremap <Leader>v "+gP
 cmap <C-v> <C-R>+
 
-""" ComEmu stuff
-if !empty($CONEMUANSI)
-  "Terminal scroll
-  inoremap <Esc>[62~ <C-X><C-E>
-  inoremap <Esc>[63~ <C-X><C-Y>
-  nnoremap <Esc>[62~ <C-E>
-  nnoremap <Esc>[63~ <C-Y> 
-  nnoremap <C-Del> <BS>
-  inoremap <C-Del> <BS>
-endif
+""" Autoformat
+noremap <Leader>f :Autoformat<CR>
 
 """ Unite
 nnoremap <silent> <Leader>b :<C-u>Unite -buffer-name=buffers buffer<CR>
