@@ -25,6 +25,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'tomtom/tcomment_vim'
 Plug 'romainl/vim-qf'
+Plug 'vim-utils/vim-man'
+Plug 'Chiel92/vim-autoformat'
 
 """ Languages
 Plug 'rust-lang/rust.vim'

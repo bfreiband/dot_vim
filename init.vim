@@ -125,6 +125,12 @@ autocmd FileType vimfiler nmap <silent><buffer> <2-LeftMouse> <Plug>(vimfiler_sm
 " updating
 let g:go_fmt_autosave = 0
 
+" autoformat
+if executable("rustfmt")
+  let g:formatdef_rustfmt = '"rustfmt"'
+  let g:formatters_rust = ['rustfmt']
+endif
+au BufWrite * :Autoformat
 
 "" Terminal specific stuff
 
@@ -132,7 +138,7 @@ if has("gui_running")
   set encoding=utf8
   set lines=40 columns=100 linespace=0
 
-  if has("win32") 
+  if has("win32")
     if !empty($USERDOMAIN) && $USERDOMAIN =~ "Lethe"
       set guifont=InputMonoNarrow:h10
     else
