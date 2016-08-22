@@ -139,7 +139,11 @@ if has("gui_running")
       set guifont=InputMonoNarrow:h11
     endif
   else
-    set guifont=Input\ Mono\ Narrow\ 11
+    if !empty($HOSTNAME) && $HOSTNAME =~ "Lethe"
+      set guifont=Input\ Mono\ Narrow\ 12
+    else
+      set guifont=Input\ Mono\ Narrow\ 11
+    endif
   endif
   set guioptions-=T
   set guioptions-=m

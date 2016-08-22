@@ -28,6 +28,7 @@ Plug 'romainl/vim-qf'
 
 """ Languages
 Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
 Plug 'tikhomirov/vim-glsl'
 Plug 'kchmck/vim-coffee-script'
 Plug 'AndrewRadev/vim-eco'
