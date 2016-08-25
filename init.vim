@@ -130,7 +130,6 @@ if executable("rustfmt")
   let g:formatdef_rustfmt = '"rustfmt"'
   let g:formatters_rust = ['rustfmt']
 endif
-au BufWrite * :Autoformat
 
 "" Terminal specific stuff
 
