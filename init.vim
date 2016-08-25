@@ -131,6 +131,9 @@ if executable("rustfmt")
   let g:formatters_rust = ['rustfmt']
 endif
 
+" nginx
+au BufRead,BufNewFile nginx.conf if &ft == '' | setfiletype nginx | endif 
+
 "" Terminal specific stuff
 
 if has("gui_running")

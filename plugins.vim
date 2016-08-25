@@ -38,6 +38,7 @@ Plug 'PProvost/vim-ps1'
 Plug 'derekwyatt/vim-scala'
 Plug 'fatih/vim-go'
 Plug 'pangloss/vim-javascript'
+Plug 'vim-scripts/nginx.vim'
 
 """ Themes
 Plug 'nanotech/jellybeans.vim'
