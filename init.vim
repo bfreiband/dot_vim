@@ -132,7 +132,7 @@ if executable("rustfmt")
 endif
 
 " nginx
-au BufRead,BufNewFile nginx.conf if &ft == '' | setfiletype nginx | endif 
+au BufRead,BufNewFile nginx.conf,*/nginx.d/*.conf if &ft == '' | setfiletype nginx | endif 
 
 "" Terminal specific stuff
 
