@@ -78,14 +78,9 @@ autocmd FileType unite call s:unite_settings()
 
 let g:unite_force_overwrite_statusline=0
 
-if executable('pt')
-  let g:unite_source_rec_async_command=['pt', '--nogroup', '--nocolor', '-l', '.']
-  let g:unite_source_grep_command='pt'
-  let g:unite_source_grep_default_opts='-i --nogroup --nocolor'
-  let g:unite_source_grep_recursive_opt=''
-elseif executable('ag')
-  let g:unite_source_rec_async_command=['ag', '--vimgrep', '-l', '.']
-  let g:unite_source_grep_command='ag'
+if executable('rg')
+  let g:unite_source_rec_async_command=['rg', '--files', '--no-messages', '-L']
+  let g:unite_source_grep_command='rg'
   let g:unite_source_grep_default_opts='-i --vimgrep'
   let g:unite_source_grep_recursive_opt=''
 elseif executable('ack')
