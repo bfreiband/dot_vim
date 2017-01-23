@@ -30,16 +30,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'EinfachToll/DidYouMean'
 
 """ Languages
-Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml'
-Plug 'tikhomirov/vim-glsl'
-Plug 'kchmck/vim-coffee-script'
-Plug 'AndrewRadev/vim-eco'
-Plug 'PProvost/vim-ps1'
-Plug 'derekwyatt/vim-scala'
-Plug 'fatih/vim-go'
-Plug 'pangloss/vim-javascript'
-Plug 'vim-scripts/nginx.vim'
+Plug 'sheerun/vim-polyglot'
 
 """ Themes
 Plug 'nanotech/jellybeans.vim'

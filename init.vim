@@ -15,7 +15,7 @@ set viminfo='100,n$VIMHOME/files/viminfo
 set encoding=utf8
 
 set ffs=unix,dos
-set clipboard=unnamed
+set clipboard=unnamedplus
 set nobackup
 set nowritebackup
 set hidden
@@ -120,6 +120,7 @@ autocmd FileType vimfiler nmap <silent><buffer> <2-LeftMouse> <Plug>(vimfiler_sm
 " updating
 let g:go_fmt_autosave = 0
 
+let g:rust_recommended_style = 1
 " autoformat
 if executable("rustfmt")
   let g:formatdef_rustfmt = '"rustfmt"'
