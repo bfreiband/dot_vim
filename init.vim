@@ -130,6 +130,9 @@ endif
 " nginx
 au BufRead,BufNewFile nginx.conf,*/nginx.d/*.conf if &ft == '' | setfiletype nginx | endif 
 
+" Jinga templates (for tera)
+au BufNewFile,BufRead *.tera set ft=jinja
+
 "" Terminal specific stuff
 
 if has("gui_running")

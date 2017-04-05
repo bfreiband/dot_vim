@@ -31,6 +31,7 @@ Plug 'EinfachToll/DidYouMean'
 
 """ Languages
 Plug 'sheerun/vim-polyglot'
+Plug 'lepture/vim-jinja' 
 
 """ Themes
 Plug 'nanotech/jellybeans.vim'
