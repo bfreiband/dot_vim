@@ -5,6 +5,8 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
+runtime defaults.vim
+
 runtime plugins.vim
 runtime keybinds.vim
 
