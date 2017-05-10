@@ -2,7 +2,6 @@ call plug#begin($VIMHOME . '/plugins')
 
 """ Base
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'tpope/vim-sensible'
 Plug 'wincent/terminus'
 
 """ General
