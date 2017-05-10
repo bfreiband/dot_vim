@@ -130,8 +130,15 @@ endif
 " nginx
 au BufRead,BufNewFile nginx.conf,*/nginx.d/*.conf if &ft == '' | setfiletype nginx | endif 
 
-" Jinga templates (for tera)
+" Tera (jinja)
 au BufNewFile,BufRead *.tera set ft=jinja
+
+" Jakefile .jake (javascript)
+au BufNewFile,BufRead *.jake set ft=javascript
+
+" Jenkinsfile (groovy)
+au BufReadPost Jenkinsfile set syntax=groovy
+au BufReadPost Jenkinsfile set filetype=groovy
 
 "" Terminal specific stuff
 
