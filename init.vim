@@ -50,6 +50,7 @@ set ttyfast
 
 set showmode
 set showcmd
+set number
 
 "" Color
 let g:jellybeans_use_lowcolor_black=1
