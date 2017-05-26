@@ -149,18 +149,10 @@ if has("gui_running")
   set encoding=utf8
   set lines=40 columns=100 linespace=0
 
-  if has("win32")
-    if !empty($USERDOMAIN) && $USERDOMAIN =~ "Lethe"
-      set guifont=InputMonoNarrow:h10
-    else
-      set guifont=InputMonoNarrow:h11
-    endif
+  if has("macunix") || has("win32")
+    set guifont=InputMonoNarrow:h12 
   else
-    if !empty($HOSTNAME) && $HOSTNAME =~ "Lethe"
-      set guifont=Input\ Mono\ Narrow\ 12
-    else
-      set guifont=Input\ Mono\ Narrow\ 11
-    endif
+    set guifont=Input\ Mono\ Narrow\ 12
   endif
   set guioptions-=T
   set guioptions-=m
