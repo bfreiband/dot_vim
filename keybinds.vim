@@ -22,6 +22,9 @@ endif
 nnoremap <leader>u :<C-u>:UndotreeToggle<CR>
 
 """ Line movement (Unimpaired and etc)
+if has("gui_macvim")
+  let macvim_skip_cmd_opt_movement = 1
+endif
 " Bubble single lines
 nmap <A-Up> [e
 nmap <A-Down> ]e
