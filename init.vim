@@ -64,6 +64,9 @@ hi SpellLocal cterm=none ctermbg=23 gui=underline guibg=#003020 guisp=Cyan
 hi Cursor guifg=black guibg=grey
 
 """ Plugin related settings
+" vim-polyglot
+let g:polyglot_disabled=['coffee-script']
+
 " Vimfiler
 let g:vimfiler_as_default_explorer=1
 
